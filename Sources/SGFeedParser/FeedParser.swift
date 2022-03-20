@@ -27,7 +27,7 @@ public class FeedParser: NSObject {
         self.parser?.delegate = self
     }
     
-    func parse(completion: @escaping (Feed) -> Void) {
+    public func parse(completion: @escaping (Feed) -> Void) {
         parser?.parse()
         switch feedType {
         case .rss:
@@ -39,7 +39,7 @@ public class FeedParser: NSObject {
         }
     }
     
-    func parse() async -> Feed? {
+    public func parse() async -> Feed? {
         parser?.parse()
         switch feedType {
         case .atom:

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Feed {
+public struct Feed {
     var title: String = ""
     var link: String = ""
     var description: String = ""
@@ -19,7 +19,7 @@ struct Feed {
     
 }
 
-struct FeedItem {
+public struct FeedItem {
     var title: String = ""
     var link: String = ""
     var description: String = ""
