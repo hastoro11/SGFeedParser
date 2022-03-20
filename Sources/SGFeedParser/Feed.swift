@@ -8,6 +8,17 @@
 import Foundation
 
 public struct Feed {
+    
+    public init(title: String = "", link: String = "", description: String = "", language: String = "", imageURL: URL? = nil, pubDate: Date? = nil, items: [FeedItem] = []) {
+        self.title = title
+        self.link = link
+        self.description = description
+        self.language = language
+        self.imageURL = imageURL
+        self.pubDate = pubDate
+        self.items = items
+    }
+    
     public var title: String = ""
     public var link: String = ""
     public var description: String = ""
