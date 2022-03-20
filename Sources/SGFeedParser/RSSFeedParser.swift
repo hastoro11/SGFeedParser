@@ -77,7 +77,7 @@ extension RSSParser: XMLParserDelegate {
             || elementName == "language" {
             currentString = ""
         }
-        print(elementName)
+        
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
@@ -115,8 +115,7 @@ extension RSSParser: XMLParserDelegate {
                 if elements.isEmpty() {
                     currentItem.description = (try? doc.text()) ?? "content"
                 } else {
-                    for p in elements {
-                        print("text", try! p.text())
+                    for p in elements {                        
                         let text = (try? p.text()) ?? ""
                         currentItem.description.append(text+"\n")
                     }

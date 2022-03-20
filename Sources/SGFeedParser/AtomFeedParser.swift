@@ -75,7 +75,6 @@ extension AtomParser: XMLParserDelegate {
             }
         }
 
-        print(elementName)
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
@@ -92,8 +91,6 @@ extension AtomParser: XMLParserDelegate {
             } else if elementName == "subtitle" {
                 feed.description = currentString
             } else if elementName == "updated" {
-//                let formatter = ISO8601DateFormatter()
-//                feed.pubDate = formatter.date(from: currentString)
                 feed.pubDate = Util.buildDateFromString(currentString)
             }
         }
