@@ -8,24 +8,24 @@
 import Foundation
 
 public struct Feed {
-    var title: String = ""
-    var link: String = ""
-    var description: String = ""
-    var language: String = ""
-    var imageURL: URL?
-    var pubDate: Date?
+    public var title: String = ""
+    public var link: String = ""
+    public var description: String = ""
+    public var language: String = ""
+    public var imageURL: URL?
+    public var pubDate: Date?
     
-    var items: [FeedItem] = []
+    public var items: [FeedItem] = []
     
 }
 
 public struct FeedItem {
-    var title: String = ""
-    var link: String = ""
-    var description: String = ""
-    var author: String = ""
-    var imageLink: String = ""
-    var pubDate: Date?
-    var content: String = ""
+    public var title: String = ""
+    public var link: String = ""
+    public var description: String = ""
+    public var author: String = ""
+    public var imageLink: String = ""
+    public var pubDate: Date?
+    public var content: String = ""
 }
 

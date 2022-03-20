@@ -10,7 +10,7 @@ import FaviconFinder
 import SwiftSoup
 
 // MARK: - AtomParser
-class AtomParser: NSObject {
+public class AtomParser: NSObject {
     var parser: XMLParser?
     var feed: Feed = Feed()
     
@@ -18,7 +18,7 @@ class AtomParser: NSObject {
     var inEntry: Bool = false
     var currentItem: FeedItem = FeedItem()
     
-    init(url: URL) {
+    public init(url: URL) {
         super.init()
         self.parser = XMLParser(contentsOf: url)
         parser?.delegate = self
@@ -49,7 +49,7 @@ class AtomParser: NSObject {
 
 // MARK: - AtomParserDelegate
 extension AtomParser: XMLParserDelegate {
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         if elementName == "entry" {
             currentItem = FeedItem()
@@ -78,11 +78,11 @@ extension AtomParser: XMLParserDelegate {
         print(elementName)
     }
     
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
+    public func parser(_ parser: XMLParser, foundCharacters string: String) {
         currentString += string
     }
     
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         currentString = currentString.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Feed elements
@@ -129,7 +129,7 @@ extension AtomParser: XMLParserDelegate {
         }
     }
     
-    func parserDidEndDocument(_ parser: XMLParser) {
+    public func parserDidEndDocument(_ parser: XMLParser) {
         if let url = URL(string: feed.link) {
             FaviconFinder(url: url).downloadFavicon { result in
                 if case let .success(icon) = result {

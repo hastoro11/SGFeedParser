@@ -20,7 +20,7 @@ public class FeedParser: NSObject {
     var url: URL!
     var feedType: FeedType?
     
-    init(url: URL) {
+    public init(url: URL) {
         super.init()
         self.url = url
         self.parser = XMLParser(contentsOf: url)
