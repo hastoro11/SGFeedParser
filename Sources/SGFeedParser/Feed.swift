@@ -31,6 +31,18 @@ public struct Feed {
 }
 
 public struct FeedItem {
+    
+    public init(title: String = "", link: String = "", description: String = "", author: String = "", imageLink: String = "", pubDate: Date? = nil, content: String = "") {
+        self.title = title
+        self.link = link
+        self.description = description
+        self.author = author
+        self.imageLink = imageLink
+        self.pubDate = pubDate
+        self.content = content
+    }
+    
+    
     public var title: String = ""
     public var link: String = ""
     public var description: String = ""
